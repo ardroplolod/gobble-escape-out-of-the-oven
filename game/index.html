@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gobble Escape: Out of the Oven</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <canvas id="game-canvas"></canvas>
+    <div id="danger-vignette"></div>
+    <div id="callout" class="callout"></div>
+
+    <!-- TITLE SCREEN -->
+    <section id="title-screen" class="overlay">
+      <div class="title-card">
+        <div class="eyebrow">THANKSGIVING 3D ESCAPE</div>
+        <h1 class="game-title">GOBBLE ESCAPE</h1>
+        <div class="game-subtitle">OUT OF THE OVEN</div>
+        <p class="tagline">
+          Outrun Farmer Jed across the Autumn Farmyard, Harvest Barn &amp; Thanksgiving Kitchen.
+          Dodge roaring ovens, flying carving knives, and snap-traps to reach the Freedom Gate!
+        </p>
+        <button id="play-btn" class="primary-btn" type="button">PLAY ESCAPE</button>
+        <div class="controls-strip">
+          <span><strong>A / D</strong> or <strong>Arrows</strong> Steer</span>
+          <span><strong>Space / W</strong> Jump &amp; Flutter</span>
+          <span><strong>S / Down</strong> Duck</span>
+          <span><strong>Shift / Click</strong> Feather Dash</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVE GAMEPLAY HUD -->
+    <header id="hud" class="hud hidden">
+      <div class="hud-left">
+        <div class="hud-pill">
+          <span class="label">SCORE</span>
+          <span id="hud-score" class="value">0</span>
+        </div>
+        <div class="hud-pill">
+          <span class="label">LIVES</span>
+          <div id="hud-lives" class="lives-row"></div>
+        </div>
+        <div id="hud-combo" class="combo-pill"></div>
+      </div>
+
+      <div class="hud-center">
+        <div id="hud-stage" class="stage-badge">AUTUMN FARMYARD</div>
+        <div class="progress-track">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <div id="hud-distance" class="dist-label">0m / 900m</div>
+      </div>
+
+      <div class="hud-right">
+        <div id="farmer-status" class="farmer-pill">FARMER: 4.4m</div>
+        <div class="dash-box">
+          <span class="label">FEATHER DASH</span>
+          <div class="dash-track"><div id="dash-fill" class="dash-fill"></div></div>
+        </div>
+        <button id="mute-btn" class="mute-btn" type="button">SOUND: ON</button>
+      </div>
+    </header>
+
+    <!-- END SCREEN (ESCAPED / CAUGHT) -->
+    <section id="end-screen" class="overlay hidden" data-outcome="caught">
+      <div class="end-card">
+        <div id="end-title" class="end-title">CAUGHT! DINNER TIME!</div>
+        <p id="end-subtitle" class="end-subtitle"></p>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="label">FINAL SCORE</span>
+            <span id="end-score" class="stat-val">0</span>
+          </div>
+          <div class="stat-box">
+            <span class="label">DISTANCE</span>
+            <span id="end-distance" class="stat-val">0m</span>
+          </div>
+          <div class="stat-box">
+            <span class="label">NEAR MISSES</span>
+            <span id="end-nearmiss" class="stat-val">0</span>
+          </div>
+          <div class="stat-box">
+            <span class="label">STAGE REACHED</span>
+            <span id="end-stage" class="stat-val">FARMYARD</span>
+          </div>
+        </div>
+        <button id="restart-btn" class="primary-btn" type="button">RUN AGAIN</button>
+      </div>
+    </section>
+
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

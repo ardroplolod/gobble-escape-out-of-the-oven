@@ -1,0 +1,106 @@
+// Core gameplay constants, autumn color palette, and stage definitions for Gobble Escape.
+
+export const GAME_CONFIG = {
+  title: 'GOBBLE ESCAPE',
+  subtitle: 'OUT OF THE OVEN',
+  escapeDistance: 900,
+  trackHalfWidth: 5.4,
+  lanePositions: [-3.2, 0, 3.2],
+  baseSpeed: 17.5,
+  maxSpeed: 31.0,
+  dashBonusSpeed: 15.0,
+  dashDuration: 0.65,
+  dashCooldown: 0.3,
+  dashCost: 35,
+  dashRegenPerSec: 12,
+  jumpVelocity: 13.8,
+  gravity: 34.0,
+  flutterGravityScale: 0.36,
+  duckDuration: 0.68,
+  maxLives: 3,
+  invulnDuration: 1.45,
+  farmerStartGap: 9.2,
+  farmerMinGap: 1.35,
+  farmerMaxGap: 13.5,
+  farmerWarnGap: 4.8,
+  nearMissMargin: 1.55,
+  nearMissScore: 150,
+  cornScore: 50,
+  cranberryScore: 100,
+  featherScore: 250,
+};
+
+export const STAGES = [
+  {
+    id: 'farmyard',
+    name: 'AUTUMN FARMYARD',
+    startDist: 0,
+    endDist: 300,
+    fogColor: 0xe69c5c,
+    fogNear: 28,
+    fogFar: 98,
+    ambientColor: 0xffd2a1,
+    sunColor: 0xffb35c,
+    groundTint: 0xd99b52,
+    spawnInterval: 1.05,
+  },
+  {
+    id: 'barn',
+    name: 'HARVEST BARN',
+    startDist: 300,
+    endDist: 600,
+    fogColor: 0x6e351c,
+    fogNear: 22,
+    fogFar: 82,
+    ambientColor: 0xffb070,
+    sunColor: 0xff9442,
+    groundTint: 0x9b5a2d,
+    spawnInterval: 0.86,
+  },
+  {
+    id: 'kitchen',
+    name: 'THANKSGIVING KITCHEN',
+    startDist: 600,
+    endDist: 900,
+    fogColor: 0x4f1e14,
+    fogNear: 20,
+    fogFar: 78,
+    ambientColor: 0xffc696,
+    sunColor: 0xff7b36,
+    groundTint: 0xe0c8a8,
+    spawnInterval: 0.72,
+  },
+];
+
+export const PALETTE = {
+  turkeyBody: 0x6e3718,
+  turkeyChest: 0x965124,
+  turkeyWattle: 0xd92626,
+  turkeyBeak: 0xf4b429,
+  turkeyFeet: 0xe89b24,
+  tailFeathers: [0x8c2d19, 0xc9521a, 0xe88b23, 0xf2c14e, 0xe88b23, 0xc9521a, 0x8c2d19],
+  farmerHat: 0xdcb464,
+  farmerShirt: 0xb82924,
+  farmerOveralls: 0x2a456e,
+  farmerSkin: 0xf0be95,
+  farmerBeard: 0x5c2c16,
+  ovenIron: 0x242124,
+  ovenTrim: 0xc28a3e,
+  ovenGlow: 0xff5a14,
+  knifeBlade: 0xe6edf5,
+  knifeHandle: 0x4d2612,
+  trapMetal: 0x525866,
+  pumpkin: 0xe86a17,
+  hay: 0xdfb24c,
+  barnRed: 0x9e2a1c,
+  woodDark: 0x542e18,
+  woodLight: 0x9c6234,
+  gravy: 0x6b3a17,
+};
+
+export function getStageForDistance(distance) {
+  for (let i = STAGES.length - 1; i >= 0; i--) {
+    if (distance >= STAGES[i].startDist) return STAGES[i];
+  }
+  return STAGES[0];
+}
